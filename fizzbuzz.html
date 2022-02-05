@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FizzBuzz</title>
+    </head>
+    <body>
+        <h1><strong>Get a FizzBuzz Result!</strong></h1>
+        <label for = "name">Masukkan angka: </label>
+        <input type = "number" id = "myNumber" value = "0">
+        <button id = "myBtn">Klik disini</button>
+        <hr></hr>
+        <div id = "hasil"></div>
+        <script>
+            const btn = document.querySelector("button");
+            btn.addEventListener("click", function() {
+                this.innerHTML = "coba lagi!";
+                this.style.color = "blue";
+
+                let angka = document.getElementById("myNumber").value;
+                console.log(angka);
+
+                function fizzbuzz(angkaMasuk) {
+                    if(angkaMasuk == 0){
+                        return "invalid input";
+                    } else if(angkaMasuk % 5 == 0){
+                        return "Buzz!";
+                    } else if(angkaMasuk % 3 == 0){
+                        return "Fizz!";
+                    } else if(angkaMasuk % 15 == 0){
+                        return "FizzBuzz!";
+                    } else if(angkaMasuk == 89){
+                        return angkaMasuk;
+                    } else{
+                        return "invalid input";
+                    }
+                }
+                const hasil = document.getElementById("hasil");
+                const newTag = document.createElement("p");
+                newTag.innerHTML = fizzbuzz(angka);
+                hasil.append(newTag);
+            });
+        </script>
+    </body>
+</html>
